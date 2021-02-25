@@ -38,45 +38,43 @@
 
 1. Install
 
-Install k3s with disable flannel and k3s default network policy and change the pod ip CIDR.
+   Install k3s with disable flannel, k3s default network policy, and change the pod IP CIDR.
 
-```bash
-curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL="latest" INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --cluster-cidr=192.168.0.0/16" sh -
-```
+   ```bash
+   curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL="latest" INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --cluster-cidr=192.168.0.0/16" sh -
+   ```
 
-2. Copy configuration file
+1. Copy configuration file
 
-```bash
-sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
-sudo chmod 755 /home/ubuntu/.kube/config
-```
+   ```bash
+   sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+   sudo chmod 755 /home/ubuntu/.kube/config
+   ```
 
-3. Get token
+1. Get Token
 
-```
-sudo cat /var/lib/rancher/k3s/server/node-token
-```
-
+   ```bash
+   sudo cat /var/lib/rancher/k3s/server/node-token
+   ```
 
 ### setup for extra node
 
 1. Install
 
-Install k3s and you should set correct server ip and token of master node
+   Install k3s and you should set correct server IP and token of master node
 
-```bash
-curl -sfL https://get.k3s.io | K3S_URL={master node ip} K3S_TOKEN={master node token} sh -
-```
+   ```bash
+   curl -sfL https://get.k3s.io | K3S_URL={master node IP} K3S_TOKEN={master node TOKEN} sh -
+   ```
 
-2. Install calico operator
+1. Install calico operator
 
-```bash
-kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
-```
+   ```bash
+   kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+   ```
 
-3. Install crd for calico operator
+1. Install crd for calico operator
 
-```bash
-kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
-```
-
+   ```bash
+   kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+   ```
