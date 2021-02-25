@@ -31,3 +31,11 @@
    systemctl status dphys-swapfile.service
    sudo systemctl disable dphys-swapfile.service
    ```
+
+## Install k3s
+
+1. xxx
+
+1. yyy
+
+1. zzz
