@@ -32,12 +32,6 @@
    sudo systemctl disable dphys-swapfile.service
    ```
 
-1. install bridge-utils
-
-    ```bash
-    sudo apt install -y bridge-utils
-    ```
-
 1. create config file for using fixed IP addresses.
 
     - IP Address list
