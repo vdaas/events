@@ -32,6 +32,61 @@
    sudo systemctl disable dphys-swapfile.service
    ```
 
+1. install bridge-utils
+
+    ```bash
+    sudo apt install -y bridge-utils
+    ```
+
+1. create config file for using fixed IP addresses.
+
+    - IP Address list
+        - k8s-master: 192.168.13.101
+        - k8s-node1:  192.168.13.102
+        - k8s-node2:  192.168.13.103
+
+    ```bash
+    sudo vim /etc/netplan/99_configfile.yaml
+    ===
+    network:
+      version: 2
+      renderer: networkd
+      ethernets:
+        eth0:
+          dhcp4: false
+          dhcp6: false
+          addresses: [<ip addresses>/24]
+          gateway4: 192.168.13.1
+          nameservers:
+            addresses: [192.168.13.1, 8.8.8.8, 8.8.4.4]
+    ```
+
+1. apply netplan
+
+    ```bash
+    # apply /etc/netplan/99_config.yaml
+    sudo netplan apply
+    # Verify
+    ip addr
+    ```
+
+1. edit `/etc/hosts`
+
+    ```bash
+    sudo vim /etc/hosts
+    ===
+    # choose hostname from k8s-master, k8s-node1 or k8s-node2.
+    127.0.0.1    [k8s-master/k8s-node1/k8s-node2]
+    ::1        localhost ip6-localhost ip6-loopback
+    ff02::1        ip6-allnodes
+    ff02::2        ip6-allrouters
+
+    127.0.1.1    raspberrypi
+    192.168.13.101 k8s-master
+    192.168.13.102 k8s-node1
+    192.168.13.103 k8s-node2
+    ```
+
 ## Install k3s
 
 ### setup for master node
