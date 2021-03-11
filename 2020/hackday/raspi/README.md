@@ -94,12 +94,12 @@
     sudo vim /etc/hosts
     ===
     # choose hostname from k8s-master, k8s-node1 or k8s-node2.
-    127.0.0.1    [k8s-master/k8s-node1/k8s-node2]
-    ::1        localhost ip6-localhost ip6-loopback
-    ff02::1        ip6-allnodes
-    ff02::2        ip6-allrouters
+    # 127.0.0.1    [k8s-master/k8s-node1/k8s-node2]
+    # ::1        localhost ip6-localhost ip6-loopback
+    # ff02::1        ip6-allnodes
+    # ff02::2        ip6-allrouters
 
-    127.0.1.1    raspberrypi
+    # 127.0.1.1    raspberrypi
     192.168.13.101 k8s-master
     192.168.13.102 k8s-node1
     192.168.13.103 k8s-node2
