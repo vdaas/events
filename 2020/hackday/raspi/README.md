@@ -125,6 +125,7 @@
 1. Copy configuration file
 
    ```bash
+   sudo mkdir ~/.kube
    sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
    sudo chmod 755 /home/ubuntu/.kube/config
    ```
