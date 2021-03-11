@@ -128,6 +128,7 @@
    sudo mkdir ~/.kube
    sudo cp /etc/rancher/k3s/k3s.yaml $HOME/.kube/config
    sudo chmod 755 $HOME/.kube/config
+   sudo chmod 755 /etc/rancher/k3s/k3s.yaml
    ```
 
 1. Get Token
