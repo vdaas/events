@@ -85,7 +85,7 @@
 1. set hostname
 
     ```bash
-    hostnamectl set-hostname [k8s-master/k8s-node1/k8s-node2]
+    sudo hostnamectl set-hostname [k8s-master/k8s-node1/k8s-node2]
     ```
 
 1. edit `/etc/hosts`
