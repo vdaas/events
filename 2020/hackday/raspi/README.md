@@ -36,7 +36,7 @@
 1. enable cgroup
 
    ```bash
-   sudo vim /boot/cmdline.txt
+   sudo vim /boot/firmware/cmdline.txt
    # add at the end of 1st line
    cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1
    ```
