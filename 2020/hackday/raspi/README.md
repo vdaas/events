@@ -127,7 +127,7 @@
    ```bash
    sudo mkdir ~/.kube
    sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
-   sudo chmod 755 /home/ubuntu/.kube/config
+   sudo chmod 755 ~/.kube/config
    ```
 
 1. Get Token
