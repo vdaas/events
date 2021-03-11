@@ -41,7 +41,7 @@
    cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1
    ```
 
-1. disable services
+1. ~~disable services~~
 
    ```bash
    systemctl status dphys-swapfile.service
