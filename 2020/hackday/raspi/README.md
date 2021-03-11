@@ -18,7 +18,8 @@
 1. provisioning ubuntu (update / upgrade)
 
     ```bash
-    sudo du -sh /var/cache/apt/archives sudo rm -rf /var/cache/apt
+    sudo du -sh /var/cache/apt/archives
+    sudo rm -rf /var/cache/apt
     sudo mkdir -p /var/cache/apt/archives/partial
     sudo DEBIAN_FRONTEND=noninteractive apt -y clean
     sudo DEBIAN_FRONTEND=noninteractive apt -y autoremove
