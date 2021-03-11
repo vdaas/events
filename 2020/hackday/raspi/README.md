@@ -104,6 +104,11 @@
     192.168.13.102 k8s-node1
     192.168.13.103 k8s-node2
     ```
+1. reboot
+
+    ```bash
+    sudo reboot
+    ```
 
 ## Install k3s
 
