@@ -15,6 +15,23 @@
 
 ## Preparation
 
+1. provisioning ubuntu (update / upgrade)
+
+    ```bash
+    sudo du -sh /var/cache/apt/archives sudo rm -rf /var/cache/apt
+    sudo mkdir -p /var/cache/apt/archives/partial
+    sudo DEBIAN_FRONTEND=noninteractive apt -y clean
+    sudo DEBIAN_FRONTEND=noninteractive apt -y autoremove
+    sudo DEBIAN_FRONTEND=noninteractive apt -y update
+    sudo DEBIAN_FRONTEND=noninteractive apt -y upgrade
+    sudo DEBIAN_FRONTEND=noninteractive apt -y full-upgrade
+    sudo DEBIAN_FRONTEND=noninteractive apt -y clean
+    sudo DEBIAN_FRONTEND=noninteractive apt -y autoremove --purge
+    sudo du -sh /var/cache/apt/archives
+    sudo rm -rf /var/cache/apt
+    sudo mkdir -p /var/cache/apt/archives/partial
+    ```
+
 1. enable cgroup
 
    ```bash
