@@ -119,7 +119,7 @@
    Install k3s with disable flannel, k3s default network policy, and change the pod IP CIDR.
 
    ```bash
-   curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL="latest" K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --cluster-cidr=192.168.0.0/16" sh -
+   curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL="latest" K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --cluster-cidr=192.168.0.0/24" sh -
    ```
 
 1. Copy configuration file
