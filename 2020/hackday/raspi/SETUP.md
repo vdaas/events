@@ -49,7 +49,13 @@
    systemctl status dphys-swapfile.service
    sudo systemctl disable dphys-swapfile.service
    ```
-1. disable firewall
+
+1. disable swap
+   ```bash
+   sudo swapoff -a
+   ```
+   
+3. disable firewall
 
    ```bash
    sudo ufw disable
