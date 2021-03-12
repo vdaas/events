@@ -49,6 +49,11 @@
    systemctl status dphys-swapfile.service
    sudo systemctl disable dphys-swapfile.service
    ```
+1. disable firewall
+
+   ```bash
+   sudo ufw disable
+   ```
 
 1. create config file for using fixed IP addresses.
 
