@@ -144,7 +144,7 @@
    Install k3s and you should set correct server IP and token of master node
 
    ```bash
-   curl -sfL https://get.k3s.io | K3S_URL=https://{master node ip}:6443 K3S_TOKEN={master node TOKEN} sh -
+   curl -sfL https://get.k3s.io | K3S_URL=https://192.168.13.101:6443 K3S_TOKEN={master node TOKEN} sh -
    ```
 
 1. Install calico operator
