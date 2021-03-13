@@ -121,6 +121,18 @@
     net.ipv6.conf.eth0.disable_ipv6 = 1
     net.ipv6.conf.lo.disable_ipv6 = 1
     ```
+
+1. Prevent `iptables` from using the `nftables` backend
+
+    ```bash
+    sudo apt-get install -y iptables arptables ebtables
+    
+    sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+    sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+    sudo update-alternatives --set arptables /usr/sbin/arptables-legacy
+    sudo update-alternatives --set ebtables /usr/sbin/ebtables-legacy
+    ```  
+ 
 1. reload sysctl
 
     ```bash
