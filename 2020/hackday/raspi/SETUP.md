@@ -121,6 +121,11 @@
     net.ipv6.conf.eth0.disable_ipv6 = 1
     net.ipv6.conf.lo.disable_ipv6 = 1
     ```
+1. reload sysctl
+
+    ```bash
+    sudo sysctl -p
+    ```
 
 1. Prevent `iptables` from using the `nftables` backend
 
@@ -132,12 +137,6 @@
     sudo update-alternatives --set arptables /usr/sbin/arptables-legacy
     sudo update-alternatives --set ebtables /usr/sbin/ebtables-legacy
     ```  
- 
-1. reload sysctl
-
-    ```bash
-    sudo sysctl -p
-    ```
     
 1. reboot
 
