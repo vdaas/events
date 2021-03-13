@@ -104,17 +104,29 @@
     ```bash
     sudo vim /etc/hosts
     ===
-    # choose hostname from k8s-master, k8s-node1 or k8s-node2.
-    # 127.0.0.1    [k8s-master/k8s-node1/k8s-node2]
-    # ::1        localhost ip6-localhost ip6-loopback
-    # ff02::1        ip6-allnodes
-    # ff02::2        ip6-allrouters
-
-    # 127.0.1.1    raspberrypi
+    # add
     192.168.13.101 k8s-master
     192.168.13.102 k8s-node1
     192.168.13.103 k8s-node2
     ```
+    
+1. edit `/etc/sysctl.conf`
+
+    ```bash
+    sudo vim /etc/sysctl.conf
+    ===
+    # add
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv6.conf.default.disable_ipv6 = 1
+    net.ipv6.conf.eth0.disable_ipv6 = 1
+    net.ipv6.conf.lo.disable_ipv6 = 1
+    ```
+1. reload sysctl
+
+    ```bash
+    sudo sysctl -p
+    ```
+    
 1. reboot
 
     ```bash
