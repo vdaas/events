@@ -171,6 +171,14 @@
    sudo cat /var/lib/rancher/k3s/server/node-token
    ```
 
+1. Uninstall k3s
+
+   To uninstall K3s from a server node, run:
+   
+   ```bash
+   /usr/local/bin/k3s-uninstall.sh
+   ```
+
 ### setup for extra node
 
 1. Install
@@ -179,6 +187,14 @@
 
    ```bash
    curl -sfL https://get.k3s.io | K3S_URL=https://192.168.13.101:6443 K3S_TOKEN={master node TOKEN} sh -
+   ```
+
+1. Uninstall k3s agent
+
+   To uninstall K3s from an agent node, run:
+   
+   ```bash
+   /usr/local/bin/k3s-agent-uninstall.sh
    ```
 
 ### setup cni plugin
