@@ -183,14 +183,8 @@
 
 ### setup for master node
 
-1. Install calico operator
+1. Install calico
 
    ```bash
-   kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
-   ```
-
-1. Install crd for calico operator
-
-   ```bash
-   kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+   kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
    ```
