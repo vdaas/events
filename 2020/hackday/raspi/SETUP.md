@@ -3,7 +3,7 @@
 - Spec:
 
   - Rspberry Pi 4(4GBi RAM)
-  - OS: Ubuntsu 20.x.x
+  - OS: Ubuntsu [20.04.2 LTS](https://ubuntu.com/download/raspberry-pi/thank-you?version=20.04.2&architecture=server-arm64+raspi)
 
 - Login User/Password
 
