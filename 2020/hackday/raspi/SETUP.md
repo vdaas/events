@@ -181,6 +181,8 @@
    curl -sfL https://get.k3s.io | K3S_URL=https://192.168.13.101:6443 K3S_TOKEN={master node TOKEN} sh -
    ```
 
+### setup for master node
+
 1. Install calico operator
 
    ```bash
