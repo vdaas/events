@@ -199,7 +199,7 @@
 
 ### setup cni plugin
 
-1. Install calico from master node
+1. Install calico from **master node**
    
    cacilo operator occurs clash. so please install with calico k8s manifest insted of operator.
    
