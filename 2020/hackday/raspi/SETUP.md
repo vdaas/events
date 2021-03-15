@@ -200,7 +200,9 @@
 ### setup cni plugin
 
 1. Install calico from master node
+   
    cacilo operator occurs clash. so please install with calico k8s manifest insted of operator.
+   
    ```bash
    kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
    ```
