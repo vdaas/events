@@ -173,6 +173,7 @@
         enabled: false
     meta:
       enabled: false
+    
     manager:
       backup:
         enabled: false
@@ -182,6 +183,7 @@
         enabled: true
         maxReplicas: 1
         minReplicas: 1
+    
     gateway:
       lb:
         enabled: true
@@ -195,6 +197,7 @@
         enabled: false
       vald:
         enabled: false
+    
     agent:
       minReplicas: 1
       podManagementPolicy: Parallel
