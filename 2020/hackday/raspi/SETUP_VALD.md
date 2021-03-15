@@ -98,6 +98,36 @@
           terminationGracePeriodSeconds: 30
     ```
 
+1. Create Job
+
+    ```bash
+    apiVersion: batch/v1
+    kind: Job
+    metadata:
+      name: minio-make-bucket
+    spec:
+      template:
+        spec:
+          containers:
+            - name: mc
+              image: minio/mc
+              imagePullPolicy: Always
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  mc alias set minio ${ENDPOINT} ${MINIO_ACCESS_KEY} ${MINIO_SECRET_KEY} --api S3v4
+                  mc mb minio/vald-minio
+              env:
+                - name: ENDPOINT
+                  value: http://minio:9000
+                - name: MINIO_ACCESS_KEY
+                  value: ACCESSKEY
+                - name: MINIO_SECRET_KEY
+                  value: SECRETKEY
+          restartPolicy: Never
+    ```
+    
 ## Install Vald
 
 1. Add vald charts
@@ -111,7 +141,103 @@
     ```bash
     cat << EOF > values.yaml
     ---
-    
+    defaults:
+      time_zone: Asia/Tokyo
+      logging:
+        format: raw
+        level: debug
+        logger: glg
+      image:
+        tag: v1.0.1
+      observability:
+        enabled: false
+    discoverer:
+      clusterRole:
+        enabled: true
+      clusterRoleBinding:
+        enabled: true
+      discoverer:
+        cache:
+          enabled: true
+          expire_duration: 2s
+          expired_cache_check_duration: 200ms
+        discovery_duration: 200ms
+        name: ""
+        namespace: _MY_POD_NAMESPACE_
+      env:
+        - name: MY_POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+      hpa:
+        enabled: false
+    meta:
+      enabled: false
+    manager:
+      backup:
+        enabled: false
+      compressor:
+        enabled: false
+      index:
+        enabled: true
+        maxReplicas: 1
+        minReplicas: 1
+    gateway:
+      lb:
+        enabled: true
+        maxReplicas: 3
+        minReplicas: 3
+        gateway_config:
+          index_replica: 2
+      backup:
+        enabled: false
+          meta:
+        enabled: false
+      vald:
+        enabled: false
+    agent:
+      minReplicas: 1
+      podManagementPolicy: Parallel
+      hpa:
+        enabled: false
+      resources:
+        requests:
+          cpu: 100m
+          memory: 50Mi
+      volumes:
+        - name: ngt-index
+          emptyDir: {}
+      volumeMounts:
+        - name: ngt-index
+          mountPath: /var/ngt
+      ngt:
+        auto_index_duration_limit: 3m
+        auto_index_check_duration: 1m
+        auto_index_length: 1000
+        dimension: 512
+        index_path: /var/ngt/index
+        enable_in_memory_mode: false
+      sidecar:
+        enabled: true
+        initContainerEnabled: true
+        env:
+          - name: AWS_ACCESS_KEY
+            value: ACCESSKEY
+          - name: AWS_SECRET_ACCESS_KEY
+            value: SECRETKEY
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        config:
+          filename: vald-agent-ngt-index
+          blob_storage:
+            storage_type: "s3"
+            bucket: "vald-minio"
+            s3:
+              endpoint: "http://minio.default.svc.cluster.local:9000"
+              region: "us-east-1"
+              force_path_style: true
     ```
     
 2. Generate k8s from helm template
