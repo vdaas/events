@@ -171,6 +171,7 @@
               fieldPath: metadata.namespace
       hpa:
         enabled: false
+    
     meta:
       enabled: false
     
