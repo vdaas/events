@@ -140,7 +140,7 @@
 
 1. Create values.yaml for helm
 
-    ```bash
+```bash
 defaults:
   time_zone: Asia/Tokyo
   logging:
@@ -243,7 +243,7 @@ agent:
           endpoint: "http://minio.default.svc.cluster.local:9000"
           region: "us-east-1"
           force_path_style: true
-    ```
+```
 
 2. Generate k8s from helm template
 
