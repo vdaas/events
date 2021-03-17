@@ -98,6 +98,8 @@
           terminationGracePeriodSeconds: 30
     ```
 
+1. Wait until minio starts up
+
 1. Create Job
 
     Wait for running job. And if you get success, please delte job like `kubectl delete -f job.yaml`
@@ -129,7 +131,7 @@
                   value: SECRETKEY
           restartPolicy: Never
     ```
-    
+
 ## Install Vald
 
 1. Add vald charts
