@@ -206,3 +206,5 @@
    ```bash
    kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
    ```
+
+1. Wait until all pods start up
