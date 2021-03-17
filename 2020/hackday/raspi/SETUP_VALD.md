@@ -11,7 +11,7 @@
     ./get_helm.sh
     ```
 
-1. Install k8s metrics server
+1. ~~Install k8s metrics server~~
 
     ```bash
     kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
