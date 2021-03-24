@@ -2,6 +2,10 @@
 
 - Setup document: Click [here](./SETUP.md)
 
+## Gateway
+
+- The Gateway IP address is `192.168.13.101`.
+
 ## List of each cluster info.
 
 |hostname|ip address|login user| login pass|
